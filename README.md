@@ -3,19 +3,23 @@ Compilación de comandos para instalar el arch.
 
 # Aviso
 
-No usarlos sin modificarlos antes para tu caso. Especialmente los comandos con similares a /dev/nvme0n1 y /dev/sda. 
+No usarlos sin modificarlos antes para tu caso. Especialmente los comandos con elementos como /dev/nvme0n1 y /dev/sda. 
 
 # Fuentes
 
 https://wiki.archlinux.org/index.php/installation_guide
+
 https://www.youtube.com/channel/UCzTi9I3zApECTkukkMOpEEA
+
 https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg
+
 https://www.youtube.com/channel/UCJdmdUp5BrsWsYVQUylCMLg
 
 
 ## Preparación:
 
 Rufus: https://rufus.ie/
+
 Arch-Linux: https://www.archlinux.org/download/
 
 1. Con rufus configura un pen-drive con el instalador de arch linux.
