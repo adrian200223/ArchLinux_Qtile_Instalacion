@@ -5,6 +5,8 @@ Compilación de comandos para instalar el arch.
 
 No usarlos sin modificarlos antes para tu caso. Especialmente los comandos con elementos como /dev/nvme0n1 y /dev/sda. 
 
+No estoy haciendo los pasos de verificar el modo de boot (BIOS o UEFI) ni la verificación de firma en el iso de instalación.
+
 # Fuentes
 
 https://wiki.archlinux.org/index.php/installation_guide
@@ -48,7 +50,7 @@ mount /dev/nvme0n1p7 /mnt
 
 vim /etc/pacman.d/mirrorlist   (dejar sólo los servidores más cercanos geográficamente)
 
-ping www.google.com  (si no va a mirar ip link show, ip link set enp3s0 up y comprobar conexión por cable, sino a la guía)
+ping www.google.com  (si no va mira ip link show, ip link set enp3s0 up y comprobar conexión por cable, sino a la guía)
 
 pacstrap /mnt base linux linux-firmware
 
@@ -103,7 +105,7 @@ shutdown +0
 
 -------------------------------------------------------------------------------------------------------
 
-ping www.google.com  (sino a usar ip link, si "operation not permited" sudo ip link ...)
+ping www.google.com  (sino usa ip link, si "operation not permited" sudo ip link ...)
 
 ip link show
 
