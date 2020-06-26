@@ -29,17 +29,22 @@ Arch-Linux: https://www.archlinux.org/download/
 3. Recomendado conectar un cable ethernet al ordenador.
 
 ## Instalación:
-
+```bash
 loadkeys es
 
 lsblk
-
-cfdisk /dev/nvme0n1  (new, type linux filesystem y write)
-
+```
+```bash
+cfdisk /dev/nvme0n1
+```
+En cfdisk new, type linux filesystem y write
+```bash
 mkfs.ext4 /dev/nvme0n1p7
 
-cfdisk /dev/sda (new, type linux swap y write)
-
+cfdisk /dev/sda 
+```
+En cfdisk, de nuevo, new, type linux swap y write
+```bash
 lsblk
 
 mkswap /dev/sda1
@@ -48,10 +53,15 @@ swapon /dev/sda1
 
 mount /dev/nvme0n1p7 /mnt
 
-vim /etc/pacman.d/mirrorlist   (dejar sólo los servidores más cercanos geográficamente)
+vim /etc/pacman.d/mirrorlist   
+```
+Dejo sólo los servidores más cercanos geográficamente
+```bash
+ping www.google.com 
+```
+Si no va mira `ip link show`, `ip link set enp3s0 up` y comprobar conexión por cable, sino hay que ir a la guía de instalación de arch)
 
-ping www.google.com  (si no va mira ip link show, ip link set enp3s0 up y comprobar conexión por cable, sino a la guía)
-
+```bash
 pacstrap /mnt base linux linux-firmware
 
 ------------------------------------------------------------------------------
@@ -60,8 +70,11 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
 
-pacman -S networkmanager  (si no va a mirar ip link show y poner ip link set enp3s0 up)
+pacman -S networkmanager 
+```
+Si no va a mira `ip link show` y pon `ip link set enp3s0 up`
 
+```bash
 systemctl enable NetworkManager
 
 ln -sf /usr/share/zoneinfo/CET/Madrid /etc/localtime
@@ -76,15 +89,20 @@ echo "KEYMAP=es" >> /etc/vconsole.conf
 
 pacman -S neovim
 
-nvim /etc/hostname (ahí escribo "localhost")
-
-nvim /etc/hosts 
-  (y escribo:
+nvim /etc/hostname
+```
+Ahí escribo: `localhost` y guardo el documento.
+```bash
+nvim /etc/hosts
+```
+Ahí escribo:
+```bash
 127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	localhost.localdomain localhost
-)
-
+```
+Y guardo el documento.
+```bash
 passwd
 
 pacman -S sudo
@@ -94,19 +112,23 @@ useradd -m <usuario>
 passwd <usuario>
   
 usermod -aG wheel,audio,video,optical,storage,kvm <usuario>
-  
-nvim /etc/sudoers o visudo  (hacen lo mismo, descomento %wheel ALL=(ALL) ALL)
+``` 
+`nvim /etc/sudoers` o `visudo`  (hacen lo mismo, descomento `%wheel ALL=(ALL) ALL`)
 
-(instalación del grub (pacman -S grub, grub-install /dev/nvme0n1, grub-mkconfig -o /boot/grub/grub.cfg), no necesaria en un equipo con otro linux, actualizo el grub con grub-customizer)
+Es necesario realizar la instalación del grub u otro bootloader (pacman -S grub, grub-install /dev/nvme0n1, grub-mkconfig -o /boot/grub/grub.cfg). En mi caso actualizo desde ubuntu el grub con grub customizer y así aparece en las opciones.
 
+```bash
 exit
 
 shutdown +0
 
 -------------------------------------------------------------------------------------------------------
 
-ping www.google.com  (sino usa ip link, si "operation not permited" sudo ip link ...)
+ping www.google.com
+```
+Si no va usa ip link, como en los casos anteriores. "Operation not permitted" significa que por ejempolo `ip link set enp3s0 up` pasa a ser `sudo ip link set enp3s0 up` (y pide la contraseña).
 
+```bash
 ip link show
 
 sudo ip link set wlp2s0 up
@@ -159,8 +181,11 @@ sudo pacman -S firefox
 
 sudo pacman -S rofi
 
-sudo nvim /etc/locale.gen (descomento en_US UTF-8 y es_ES UTF-8)
+sudo nvim /etc/locale.gen 
+```
+Descomento en_US UTF-8 y es_ES UTF-8 en locale.gen
 
+```bash
 localectl
 
 sudo locale-gen
@@ -173,13 +198,20 @@ cp /home/<usuario>/Downloads/fondo_pantalla.png /usr/local/backgrounds
   
 sudo pacman -S feh
 
-nvim ~/.config/qtile/autostart.sh (añado feh --bg-scale /usr/local/backgrounds/fondo_pantalla.png y alacritty &)
+nvim ~/.config/qtile/autostart.sh 
+```
+Añado `feh --bg-scale /usr/local/backgrounds/fondo_pantalla.png` y `alacritty &`
 
+```bash
 sudo pacman -S cbatticon
 
 sudo pacman -S neofetch
 
-sudo nvim ~/.bashrc (comento líneas 11, 12 y 13, añado neofetch y modifico export PS1 buscando bashrc generator en firefox)
+sudo nvim ~/.bashrc
+```
+Ccomento líneas 11, 12 y 13, añado `neofetch` y modifico export PS1 buscando bashrc generator en firefox
+
+```bash
 
 sudo pkill -KILL -u <usuario>
   
@@ -192,13 +224,19 @@ sudo pacman -S brightnessctl
 sudo pacman -S redshift
 
 sudo rofi -show run -> lightdm-gtk-greeter-settings
+```
 
 # Comandos muy opcionales
 
+```bash
 sudo pacman -S dolphin
 
 sudo pacman -S qt5ct
 
-sudo pacman -S plasma   (otro entorno gráfico, por si qtile falla)
+sudo pacman -S plasma   
+```
+Plasma es otro entorno gráfico, por si qtile falla, pero no es para nada necesario.
 
+```bash
 sudo pacman -S htop
+```
