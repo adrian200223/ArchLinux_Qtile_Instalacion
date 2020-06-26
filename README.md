@@ -233,9 +233,11 @@ sudo pacman -S picom
 sudo pacman -S brightnessctl
 
 sudo pacman -S redshift
-
-sudo rofi -show run -> lightdm-gtk-greeter-settings
 ```
+```bash
+sudo rofi -show run
+```
+En la ventana escribo: lightdm-gtk-greeter-settings y le doy a enter
 
 # Comandos muy opcionales
 
