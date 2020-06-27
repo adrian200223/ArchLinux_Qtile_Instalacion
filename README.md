@@ -218,7 +218,7 @@ sudo pacman -S cbatticon
 sudo pacman -S neofetch
 ```
 ```bash
-sudo nvim ~/.bashrc
+nvim ~/.bashrc
 ```
 Comento líneas 11, 12 y 13, añado `neofetch` y modifico export PS1 usando http://ezprompt.net/
 
@@ -246,7 +246,7 @@ sudo pacman -S dolphin
 
 sudo pacman -S qt5ct
 
-sudo pacman -S plasma   
+sudo pacman -S plasma-desktop   
 ```
 Plasma es otro entorno gráfico, por si qtile falla, pero no es para nada necesario.
 
