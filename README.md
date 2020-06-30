@@ -118,7 +118,7 @@ passwd <usuario>
 usermod -aG wheel,audio,video,optical,storage,kvm <usuario>
 ``` 
 A continuación:
-`nvim /etc/sudoers` o `visudo`  (hacen lo mismo) y descomento la línea con `%wheel ALL=(ALL) ALL` (quitando el #).
+`nvim /etc/sudoers` o `visudo`  (hacen lo mismo) y descomento la línea con `%wheel ALL=(ALL) ALL` (quitando el #). También poner ``Defaults insults`
 
 Es necesario realizar la instalación del grub u otro bootloader (creo que sería con `pacman -S grub`, `grub-install /dev/nvme0n1`, `grub-mkconfig -o /boot/grub/grub.cfg`). En mi caso actualizo desde ubuntu el grub con grub customizer y así aparece en las opciones.
 
@@ -252,4 +252,5 @@ Plasma es otro entorno gráfico, por si qtile falla, pero no es para nada necesa
 
 ```bash
 sudo pacman -S htop
+sudo pacman -S lolcat
 ```
