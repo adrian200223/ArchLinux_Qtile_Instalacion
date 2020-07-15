@@ -254,3 +254,14 @@ Plasma es otro entorno gráfico, por si qtile falla, pero no es para nada necesa
 sudo pacman -S htop
 sudo pacman -S lolcat
 ```
+
+```bash
+sudo nvim /etc/pacman.conf
+```
+Descomento `Color` y añado en la linea siguiente: `ILoveCandy`.
+
+```bash
+sudo nvim ~/.config/qtile/config.py
+```
+Edito la configuración del entorno gráfico. Cambio el tema con: `theme = "dracula"` (si la carpeta de los temas está bien configurada).
+
