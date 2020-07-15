@@ -263,5 +263,5 @@ Descomento `Color` y añado en la linea siguiente: `ILoveCandy`.
 ```bash
 sudo nvim ~/.config/qtile/config.py
 ```
-Edito la configuración del entorno gráfico. Cambio el tema con: `theme = "dracula"` (si la carpeta de los temas está bien configurada).
+Edito la configuración del entorno gráfico. Cambio el tema con: `theme = "dracula"` (si el path a la carpeta de los temas está bien configurado y en la carpeta de los temas existe el tema drácula).
 
